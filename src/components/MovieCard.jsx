@@ -2,13 +2,13 @@ import React from 'react';
 
 function MovieCard({ movie }) {
   return (
-    <div className="flex flex-row">
-      <div className="card bg-gray-800 text-white rounded-lg overflow-hidden shadow-lg w-64 h-96">
+    <div >
+      <div className="card bg-gray-800 text-white rounded-lg overflow-hidden shadow-lg w-64 h-96 ">
         <div className="w-full h-64">
           <img
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             alt=""
-            className="w-full h-full object-cover"
+            className="w-full h-full object-fill"
           />
         </div>
         <div className="p-4">

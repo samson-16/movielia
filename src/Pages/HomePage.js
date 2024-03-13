@@ -41,7 +41,7 @@ export const HomePage = () => {
         <div>
        <h1 className='text-4xl font-normal text-center text-white mb-3'>Top Rated movies</h1>
        </div>
-      <div className="flex gap-4 flex-wrap">
+      <div className="flex gap-4 flex-wrap justify-center ">
        
         {Top.map((movieReq) => (
           <MovieCard movie={movieReq} />
