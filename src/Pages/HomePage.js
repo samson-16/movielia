@@ -47,7 +47,7 @@ export const HomePage = () => {
           <MovieCard movie={movieReq} />
         ))}
       </div>
-       <div>
+       <div className='text-4xl font-normal text-center text-white mb-3'>
        <h1>popular movies</h1>
        </div>
       <div className="flex gap-4 mb-[50px] flex-wrap justify-start">
