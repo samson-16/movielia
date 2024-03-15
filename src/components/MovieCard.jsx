@@ -3,7 +3,7 @@ import React from "react";
 function MovieCard({ movie }) {
   return (
     <div>
-      <div className="card bg-gray-800 text-white rounded-lg overflow-clip shadow-lg w-56 h-[340px]   ">
+      <div className="card bg-gray-800 text-white rounded-lg overflow-clip shadow-lg w-56 h-[340px]  hover:scale-110 ">
         <div className="w-full h-44">
           <img
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}

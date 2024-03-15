@@ -1,41 +1,33 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useMemo, useState } from "react";
 import { FaSearchengin } from "react-icons/fa";
 
-export const Search = ({setSearchQuery}) => {
-  
-  // const history = useHistory();
-  // // const Api_search = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(searchQuery)}&api_key=b7234b3d0b8e2719c5518a5e91c26528`;
+export const Search = ({ setSearchQuery }) => {
+  const [search, setSearch] = useState("");
+  const Api_search = `https://api.themoviedb.org/3/search/movie?query=${search}&api_key=b7234b3d0b8e2719c5518a5e91c26528`;
+  const handleSearch = async () => {
+    try {
+      const res = await fetch(Api_search);
+      const data = await res.json();
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   fetch(Api_search)
-  //     .then(response => {
-  //       if (!response.ok) {
-  //         throw new Error('Network response was not ok');
-  //       }
-  //       return response.json();
-  //     })
-  //     .then(data => {
-  //       if (data.results && data.results.length > 0) {
-  //         setMovies(data.results);}    
-  //     })
-  //     .catch(error => {
-  //       console.error('Error fetching data:', error);
-      
-  //     });
-  // }
-  const handleSearch = (e) => {
-    setSearchQuery(e.target.value);
+      setSearchQuery(data.results);
+    } catch (error) {
+      console.log(error);
+    }
   };
+  useMemo(() => {
+    handleSearch();
+  }, [search]);
+   const handleSubmit=(e)=>{
+    e.preventDefault();
+   }
   return (
     <div className="h-[400px] flex justify-center items-center">
-      <form >
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Search..."
-     
-          onChange={handleSearch}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
           className="caret-slate-600 w-[700px] h-[50px] mr-2 rounded-lg px-2 border-none focus:outline-none focus:ring"
         />
         <button
@@ -53,8 +45,7 @@ export const Search = ({setSearchQuery}) => {
         </button>
       </form>
 
-      
-        {/* {error && <p>{error}</p>}
+      {/* {error && <p>{error}</p>}
         {movies.length > 0 ? (
           movies.map((movie, index) => (
             <SearchResult key={index} movie={movie} />
@@ -62,7 +53,7 @@ export const Search = ({setSearchQuery}) => {
         ) : (
           <p>No results found</p>
         )} */}
-{/* 
+      {/* 
 <ul>
         {movies.map((movie) => (
           <SearchResult key={movie.id} {...movie} />
@@ -70,5 +61,5 @@ export const Search = ({setSearchQuery}) => {
       </ul>
       </div> */}
     </div>
-  )
+  );
 };
