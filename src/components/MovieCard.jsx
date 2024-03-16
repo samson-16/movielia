@@ -4,8 +4,13 @@ function MovieCard({ movie, favouriteComponent, handleClick }) {
   const FavouriteComponent = favouriteComponent;
   return (
     <div>
+<<<<<<< HEAD
       <div className="image-container card bg-gray-800 text-white rounded-lg overflow-hidden shadow-lg w-64 h-96 ">
         <div className=" w-full h-64">
+=======
+      <div className="card bg-gray-800 text-white rounded-lg overflow-clip shadow-lg w-56 h-[340px]  hover:scale-110 ">
+        <div className="w-full h-44">
+>>>>>>> 7ea93fad21958976883269384ddd4ff69f9d0845
           <img
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             alt=""
