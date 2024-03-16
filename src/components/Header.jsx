@@ -1,21 +1,35 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 export const Header = () => {
   return (
     <nav className="bg-gray-800 p-4 flex justify-between items-center h-[60px] cursor-pointer text-[20px] ">
-      <div>
-        <ul className="flex ml-9">
-          <li className="mr-4 text-white hover:underline hover:underline-offset-8">Home</li>
-          <li className="mr-4 text-white hover:underline hover:underline-offset-8">Movies</li>
-          <li className="mr-4 text-white hover:underline hover:underline-offset-8">Series</li>
-          <li className="mr-4 text-white hover:underline hover:underline-offset-8">Favorites</li>
-        </ul>
+      <div className="flex ml-9">
+        <Link
+          to="/"
+          className="mr-4 text-white hover:underline hover:underline-offset-8"
+        >
+          Home
+        </Link>
+        <Link className="mr-4 text-white hover:underline hover:underline-offset-8">
+          Movies
+        </Link>
+        <Link className="mr-4 text-white hover:underline hover:underline-offset-8">
+          Series
+        </Link>
+        <Link
+          to="/favourites"
+          className="mr-4 text-white hover:underline hover:underline-offset-8"
+        >
+          Favourites
+        </Link>
       </div>
-      <div>
-        <ul className="flex mr-9">
-          <li className="mr-4 text-white hover:underline hover:underline-offset-8">Sign up</li>
-          <li className="text-white hover:underline hover:underline-offset-8">Log in</li>
-        </ul>
+      <div className="flex mr-9">
+        <Link className="mr-4 text-white hover:underline hover:underline-offset-8">
+          Sign Up
+        </Link>
+        <Link className="mr-4 text-white hover:underline hover:underline-offset-8">
+          Log In
+        </Link>
       </div>
     </nav>
   );
