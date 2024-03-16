@@ -1,35 +1,59 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 export const Header = () => {
   return (
     <nav className="bg-gray-800 p-4 flex justify-between items-center h-[60px] cursor-pointer text-[20px] ">
       <div className="flex ml-9">
-        <Link
+        <NavLink
+          exact
           to="/"
           className="mr-4 text-white hover:underline hover:underline-offset-8"
+          activeClassName="text-red-500"
         >
           Home
-        </Link>
-        <Link className="mr-4 text-white hover:underline hover:underline-offset-8">
+        </NavLink>
+        <NavLink
+          exact
+          to="/movies"
+          className="mr-4 text-white hover:underline hover:underline-offset-8"
+          activeClassName="text-red-500"
+        >
           Movies
-        </Link>
-        <Link className="mr-4 text-white hover:underline hover:underline-offset-8">
+        </NavLink>
+        <NavLink
+          exact
+          to="/series"
+          className="mr-4 text-white hover:underline hover:underline-offset-8"
+          activeClassName="text-red-500"
+        >
           Series
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
+          exact
           to="/favourites"
           className="mr-4 text-white hover:underline hover:underline-offset-8"
+          activeClassName="text-red-500"
         >
           Favourites
-        </Link>
+        </NavLink>
       </div>
       <div className="flex mr-9">
-        <Link className="mr-4 text-white hover:underline hover:underline-offset-8">
+        <NavLink
+          exact
+          to="/signup"
+          className="mr-4 text-white hover:underline hover:underline-offset-8"
+          activeClassName="text-red-500"
+        >
           Sign Up
-        </Link>
-        <Link className="mr-4 text-white hover:underline hover:underline-offset-8">
+        </NavLink>
+        <NavLink
+          exact
+          to="/login"
+          className="mr-4 text-white hover:underline hover:underline-offset-8"
+          activeClassName="text-red-500"
+        >
           Log In
-        </Link>
+        </NavLink>
       </div>
     </nav>
   );

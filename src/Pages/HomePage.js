@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import AddFavourite from "../components/AddFavourite";
 import { Header } from "../components/Header";
+import { Search } from "../components/search/Search";
+import Avatar from "../Assets/Avatar.png";
 
 export const HomePage = () => {
   const API_URL =
@@ -11,7 +13,7 @@ export const HomePage = () => {
 
   const [movies, setMovies] = useState([]);
   const [Top, setTop] = useState([]);
-
+  const [searchQuery, setSearchQuery] = useState([]);
   useEffect(() => {
     fetch(API_URL)
       .then((res) => res.json())
@@ -50,34 +52,71 @@ export const HomePage = () => {
   return (
     <div>
       <Header />
-      <div>
-        <h1 className="text-4xl font-normal text-center text-white mb-3">
-          Top Rated Movies
-        </h1>
+
+      <div className="relatve">
+        <img
+          src={Avatar}
+          alt=""
+          className="-z-30 absolute w-full h-[500px] object-fill "
+        />
       </div>
-      <div className="flex gap-8 flex-wrap justify-center">
-        {Top.map((movieReq) => (
-          <MovieCard
-            key={movieReq.id}
-            movie={movieReq}
-            favouriteComponent={AddFavourite}
-            handleClick={() => addToFavourites(movieReq)}
-          />
-        ))}
+        
+
+<div className=" top-0 left-0 w-full z-10">
+        <Search setSearchQuery={setSearchQuery} />
       </div>
-      <div className="text-4xl font-normal text-center text-white mb-3">
-        <h1>Popular Movies</h1>
-      </div>
-      <div className="flex gap-8 mb-[50px] flex-wrap justify-start">
-        {movies.map((movieReq) => (
-          <MovieCard
-            key={movieReq.id}
-            movie={movieReq}
-            favouriteComponent={AddFavourite}
-            handleClick={() => addToFavourites(movieReq)}
-          />
-        ))}
-      </div>
+      {searchQuery.length > 0 ? (
+        <div className="ml-5 mt-2 ">
+          <div className="text-4xl font-normal text-center text-white mt-[100px] mb-2 h-7 ">
+            <h1>Search result</h1>
+          </div>
+          <div className="flex gap-4 mb-[50px]  flex-wrap justify-start">
+            {searchQuery.map((movieReq) => (
+               <MovieCard
+               key={movieReq.id}
+               movie={movieReq}
+               favouriteComponent={AddFavourite}
+               handleClick={() => addToFavourites(movieReq)}
+             />
+            ))}
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="ml-5 mt-28 ">
+            <div>
+              <h1 className="text-4xl font-normal text-center text-white mb-3  border-gray-400 border-2">
+                Top Rated movies
+              </h1>
+            </div>
+            <div className="flex gap-4 flex-wrap justify-center ">
+              {Top.map((movieReq) => (
+                 <MovieCard
+                 key={movieReq.id}
+                 movie={movieReq}
+                 favouriteComponent={AddFavourite}
+                 handleClick={() => addToFavourites(movieReq)}
+               />
+              ))}
+            </div>
+          </div>
+          <div className="ml-5 mt-2">
+            <div className="text-4xl font-normal w-full text-white mb-6 border-gray-400 border-2 h-[55px] mt-4 flex justify-center items-center">
+              <h1>popular movies</h1>
+            </div>
+            <div className="flex gap-4 mb-[50px]  flex-wrap justify-start">
+              {movies.map((movieReq) => (
+                  <MovieCard
+                  key={movieReq.id}
+                  movie={movieReq}
+                  favouriteComponent={AddFavourite}
+                  handleClick={() => addToFavourites(movieReq)}
+                />
+              ))}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
