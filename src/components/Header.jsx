@@ -4,8 +4,8 @@ import logo from "../Assets/logo.png";
 export const Header = () => {
   return (
     <>
-    <nav className="bg-gray-800 shadow-md p-4 top-0 z-0 flex justify-between items-center h-[60px] cursor-pointer text-[20px] ">
-      <div className="flex ml-9">
+    <nav className="bg-black shadow-md p-4 top-0 z-0 flex justify-between items-center h-[60px] cursor-pointer text-[20px] ">
+      <div className="flex ml-[120px]">
       <Link
           exact
           to="/"
@@ -52,24 +52,7 @@ export const Header = () => {
           Favourites
         </NavLink>
       </div>
-      <div className="flex mr-9">
-        <NavLink
-          exact
-          to="/signup"
-          className="mr-4 text-white hover:underline hover:underline-offset-8"
-          activeClassName="text-red-500"
-        >
-          Sign Up
-        </NavLink>
-        <NavLink
-          exact
-          to="/login"
-          className="mr-4 text-white hover:underline hover:underline-offset-8"
-          activeClassName="text-red-500"
-        >
-          Log In
-        </NavLink>
-      </div>
+      
     </nav>
     </>
   );
