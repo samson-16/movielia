@@ -16,7 +16,7 @@ export const Header = () => {
           className="w-full h-12 object-contain" />
         </Link>
         <div className="">
-        
+
         </div>
 
         <NavLink
