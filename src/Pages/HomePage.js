@@ -9,11 +9,15 @@ import Footer from "../components/Footer";
 export const HomePage = () => {
   const API_URL =
     "https://api.themoviedb.org/3/movie/popular?api_key=b7234b3d0b8e2719c5518a5e91c26528&language=en-US";
-  const Top_Rated_Api =
-    "https://api.themoviedb.org/3/movie/top_rated?api_key=b7234b3d0b8e2719c5518a5e91c26528&language=en-US";
+  // const Top_Rated_Api =
+  //   "https://api.themoviedb.org/3/movie/top_rated?api_key=b7234b3d0b8e2719c5518a5e91c26528&language=en-US";
+
+    const [series, setSeries]= useState([]);
+    const series_Url = 
+    'https://api.themoviedb.org/3/tv/popular?api_key=b7234b3d0b8e2719c5518a5e91c26528&language=en-US&page=1'
 
   const [movies, setMovies] = useState([]);
-  const [Top, setTop] = useState([]);
+ 
   const [searchQuery, setSearchQuery] = useState([]);
   useEffect(() => {
     fetch(API_URL)
@@ -26,11 +30,11 @@ export const HomePage = () => {
         console.error("Error fetching popular movies:", error);
       });
 
-    fetch(Top_Rated_Api)
+    fetch(series_Url)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setTop(data.results);
+        setSeries(data.results);
       })
       .catch((error) => {
         console.error("Error fetching top rated movies:", error);
@@ -85,19 +89,17 @@ export const HomePage = () => {
       ) : (
         <>
           <div className="ml-5 mt-28 ">
-            <div className="w-full sm:gap-8 items-center">
-              <h1 className="sm:text-xl font-bold text-4xl text-center text-white mb-3  border-gray-400 border-2">
-                Top Rated movies
-              </h1>
+            <div className="text-4xl w-full text-white sm:gap-8 border-gray-400 items-center">
+              <h1 className="sm:text-xl font-bold text-4xl text-center text-white mb-3  border-gray-400 border-2">Popular Movies</h1>
             </div>
-            <div className="flex gap-4 flex-wrap justify-center ">
-              {Top.map((movieReq) => (
-                 <MovieCard
-                 key={movieReq.id}
-                 movie={movieReq}
-                 favouriteComponent={AddFavourite}
-                 handleClick={() => addToFavourites(movieReq)}
-               />
+            <div className="flex gap-4   flex-wrap justify-start">
+              {movies.map((movieReq) => (
+                  <MovieCard
+                  key={movieReq.id}
+                  movie={movieReq}
+                  favouriteComponent={AddFavourite}
+                  handleClick={() => addToFavourites(movieReq)}
+                />
               ))}
             </div>
           </div>
@@ -105,8 +107,8 @@ export const HomePage = () => {
             <div className="text-4xl w-full text-white sm:gap-8 border-gray-400 items-center">
               <h1 className="sm:text-xl font-bold text-4xl text-center text-white mb-3  border-gray-400 border-2">Popular Movies</h1>
             </div>
-            <div className="flex gap-4   flex-wrap justify-center">
-              {movies.map((movieReq) => (
+            <div className="flex gap-4   flex-wrap justify-start">
+              {series.map((movieReq) => (
                   <MovieCard
                   key={movieReq.id}
                   movie={movieReq}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from 'react-router-dom';
 import { Header } from "../components/Header";
 import Footer from "../components/Footer";
+
 function FavouritePage() {
   const [favourites, setFavourites] = useState([]);
 
@@ -20,13 +21,12 @@ function FavouritePage() {
   };
 
   const removeFromFavourites = (movieToRemove) => {
-    // Filter out the movie to remove
     const updatedFavourites = favourites.filter(
       (movie) => movie.id !== movieToRemove.id
     );
-    // Update local storage
+    
     localStorage.setItem("favourites", JSON.stringify(updatedFavourites));
-    // Update state to re-render the component
+    
     setFavourites(updatedFavourites);
   };
 
