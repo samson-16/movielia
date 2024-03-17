@@ -2,12 +2,12 @@ import React from "react";
 const AddFavourite = () => {
   return (
     <>
-      <span className="mr-2">Add to favourite</span>
-      <svg
+      <span className="mr-2 hidden group-hover:block ">Add to favourite</span>
+      <svg className="hover:fill-red-600"
         xmlns="http://www.w3.org/2000/svg"
         width="1em"
         height="1em"
-        fill="red"
+        
         class="bi bi-heart-fill"
         viewBox="0 0 16 16"
       >

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Footer from "../components/Footer";
 // import MovieCard from '../components/MovieCard';
 import { Header } from "../components/Header";
 
@@ -24,18 +25,18 @@ const MovieDetail = () => {
   }, [id]);
   const { title, overview, release_date, vote_average, poster_path } = movie;
   return (
-    <div>
+    <div className="relative min-h-screen">
       <Header />
      
       {loading ? (
         <div>Loading...</div>
         ) : (
 
-          <div className="w-full xl:h-50  relative text-white">
+          <div className="w-full xl:h-10 min-h-screen relative mt-0 mb-15 text-white">
             <img
               src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
               alt="" 
-              className="w-full hidden opacity-40 xl:inline-block h-fulll object-cover"
+              className="w-full hidden opacity-40 xl:inline-block h-full object-cover"
               />
             <div className="xl:bg-black bg-black flex-colo xl:bg-opacity-90 xl:absolute top-0 left-0 right-0 bottom-0">
                 <div className="container px-3 mx-auto 2xl:px-32 xl:grid grid-cols-3 flex-colo py-10 lg:py-20 gap-8">
@@ -52,8 +53,6 @@ const MovieDetail = () => {
                             <p>Release Date: {release_date} Rating: {vote_average}</p>
                             <p className="text-slate-200 text-sm leading-7">{overview}</p>
                     
-
-                
                      </div>
                     </div>
                 </div>
@@ -61,7 +60,7 @@ const MovieDetail = () => {
         
           </div>
         )}
-
+    <Footer />
  </div>
      
   

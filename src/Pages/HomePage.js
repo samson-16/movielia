@@ -4,6 +4,7 @@ import AddFavourite from "../components/AddFavourite";
 import { Header } from "../components/Header";
 import { Search } from "../components/search/Search";
 import Avatar from "../Assets/Avatar.png";
+import Footer from "../components/Footer";
 
 export const HomePage = () => {
   const API_URL =
@@ -84,8 +85,8 @@ export const HomePage = () => {
       ) : (
         <>
           <div className="ml-5 mt-28 ">
-            <div>
-              <h1 className="text-4xl font-normal text-center text-white mb-3  border-gray-400 border-2">
+            <div className="w-full sm:gap-8 items-center">
+              <h1 className="sm:text-xl font-bold text-4xl text-center text-white mb-3  border-gray-400 border-2">
                 Top Rated movies
               </h1>
             </div>
@@ -100,11 +101,11 @@ export const HomePage = () => {
               ))}
             </div>
           </div>
-          <div className="ml-5 mt-2">
-            <div className="text-4xl font-normal w-full text-white mb-6 border-gray-400 border-2 h-[55px] mt-4 flex justify-center items-center">
-              <h1>popular movies</h1>
+          <div className="ml-5 mt-28 ">
+            <div className="text-4xl w-full text-white sm:gap-8 border-gray-400 items-center">
+              <h1 className="sm:text-xl font-bold text-4xl text-center text-white mb-3  border-gray-400 border-2">Popular Movies</h1>
             </div>
-            <div className="flex gap-4 mb-[50px]  flex-wrap justify-start">
+            <div className="flex gap-4   flex-wrap justify-center">
               {movies.map((movieReq) => (
                   <MovieCard
                   key={movieReq.id}
@@ -117,6 +118,8 @@ export const HomePage = () => {
           </div>
         </>
       )}
+      <Footer />
     </div>
+    
   );
 };

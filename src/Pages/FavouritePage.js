@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-
+import { NavLink } from 'react-router-dom';
+import { Header } from "../components/Header";
+import Footer from "../components/Footer";
 function FavouritePage() {
   const [favourites, setFavourites] = useState([]);
 
@@ -29,9 +31,12 @@ function FavouritePage() {
   };
 
   return (
-    <div className="flex gap-8 flex-wrap justify-center mt-4 mb-4">
+    <>
+    <Header />
+    <div className="flex gap-8 flex-wrap justify-center mt-4 mb-20">
       {favourites.length > 0 ? (
         favourites.map((movie) => (
+          <NavLink to={`/${movie.id}`}>
           <div className="flex gap-8 flex-wrap ">
             <div className="image-container card bg-gray-800 text-white rounded-lg overflow-hidden shadow-lg w-64 h-96 ">
               <div className="">
@@ -56,6 +61,7 @@ function FavouritePage() {
               </div>
             </div>
           </div>
+          </NavLink>
         ))
       ) : (
         <p className="font-size-500px">
@@ -63,6 +69,8 @@ function FavouritePage() {
         </p>
       )}
     </div>
+    <Footer />
+    </>
   );
 }
 

@@ -36,7 +36,7 @@ export const Search = ({ setSearchQuery }) => {
             color: "royalblue",
             width: "52px",
             height: "52px",
-            backgroundColor: "white",
+            backgroundColor: "red",
             borderRadius: "10px",
             padding: "17px",
           }}
