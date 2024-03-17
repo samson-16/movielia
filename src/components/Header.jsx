@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 export const Header = () => {
   return (
-    <nav className="bg-gray-800 p-4 flex justify-between items-center h-[60px] cursor-pointer text-[20px] ">
+    <nav className="bg-gray-800 p-4 flex justify-between items-center h-[60px] cursor-pointer text-[20px] fixed z-10 w-full bg-transparent ">
       <div className="flex ml-9">
         <NavLink
           exact

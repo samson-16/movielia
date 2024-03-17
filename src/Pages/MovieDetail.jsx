@@ -35,7 +35,7 @@ const MovieDetail = () => {
             <img
               src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
               alt="" 
-              className="w-full hidden opacity-40 xl:inline-block h-fulll object-cover"
+              className="w-full hidden opacity-40 xl:inline-block h-fulll object-cover max-h-screen"
               />
             <div className="xl:bg-black bg-black flex-colo xl:bg-opacity-90 xl:absolute top-0 left-0 right-0 bottom-0">
                 <div className="container px-3 mx-auto 2xl:px-32 xl:grid grid-cols-3 flex-colo py-10 lg:py-20 gap-8">
