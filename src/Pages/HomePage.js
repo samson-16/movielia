@@ -5,9 +5,8 @@ import { Header } from "../components/Header";
 import { Search } from "../components/search/Search";
 import back from "../Assets/701704.jpg";
 import Footer from "../components/Footer";
-import 'react-slideshow-image/dist/styles.css'
+import "react-slideshow-image/dist/styles.css";
 import { Slide } from "react-slideshow-image";
-
 
 export const HomePage = () => {
   const API_URL =
@@ -74,8 +73,6 @@ export const HomePage = () => {
     setShowAllSeries(!showAllSeries);
   };
 
-
-
   return (
     <div>
       <Header />
@@ -87,16 +84,15 @@ export const HomePage = () => {
         />
       </div>
 
-
       <div className="top-0 left-0 w-full z-10">
         <Search setSearchQuery={setSearchQuery} />
       </div>
       {searchQuery.length > 0 ? (
-        <div className="ml-5 mt-2 ">
-          <div className="text-4xl font-normal text-center text-white mt-[100px] mb-2 h-7 ">
+        <div className="ml-5 mt-[400px] ">
+          <div className="text-4xl font-normal text-center text-white mt-[100px] mb-4 h-7 ">
             <h1>Search result</h1>
           </div>
-          <div className="flex gap-4 mb-[50px] flex-wrap justify-start">
+          <div className="flex gap-4 mb-[50px] flex-wrap justify-start space-x-6 ml-[70px]">
             {searchQuery.map((movieReq) => (
               <MovieCard
                 key={movieReq.id}
