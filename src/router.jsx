@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 
 import { HomePage } from "./Pages/HomePage";
-// import MovieDetail from "./Pages/MovieDetail";
+import MovieDetail from "./Pages/MovieDetail";
 import Movies from "./Pages/Movies";
 import Series from "./Pages/Series";
 import FavouritePage from "./Pages/FavouritePage";
@@ -16,7 +16,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<HomePage />} />
-      {/* <Route path=":id" element={<MovieDetail />} /> */}
+      <Route path=":id" element={<MovieDetail />} />
       <Route path="/movies" element={<Movies />} />
       <Route path="/series" element={<Series />} />
       <Route path="/favourites" element={<FavouritePage />} />
